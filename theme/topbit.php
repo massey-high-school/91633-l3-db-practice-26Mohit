@@ -1,6 +1,4 @@
-<!DOCTYPE HTML>
 
-<html>
 
 <head>
 	<meta name="description" content="Chic Clothing">
