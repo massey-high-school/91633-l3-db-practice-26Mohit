@@ -18,7 +18,7 @@ if(mysqli_connect_error()){
 
 <?php
     
-include ("them/topbit.php");
+include ("theme/topbit.php");
 include ("content/navigation.html");
     
 ?>
@@ -30,7 +30,7 @@ include ("content/navigation.html");
 		<p>Please choose a category from the list above or <a href="#">login</a> to access the admin panel.</p>	
 
 	</div> <!-- end main -->
-<?php include ("them/bottombit.php"); ?>		
+<?php include ("theme/bottombit.php"); ?>		
 	
 
 </html>
