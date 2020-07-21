@@ -1,12 +1,10 @@
 <?php
 
-int_set('display_errors', 'On');  //change to 'Off' when live
+ini_set('display_errors', 'On');  //change to 'Off' when live
 
-define ("DB_NAME", "mohitnegi_chic");
-define ("DB_USERNAME", "root");
-define ("DB_PASSWORD", "");
-define ("DB_HOST", "logalhost");
-
-define ("IMAGE_DIRECTORY","../images");
+define ("DB_NAME", "negim66919");
+define ("DB_USERNAME", "_negim66919");
+define ("DB_PASSWORD", "          ");
+define ("DB_HOST", "localhost");
 
 ?>
