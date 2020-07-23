@@ -16,10 +16,3 @@
 		<h1 class="white">Chic Clothing</h1>
 	</div> <!-- end heading -->
 
-	<div class="navigation">
-		
-		Category links go here | 
-					
-		<a class="nav" href="admin/admin.php">Admin</a>
-		
-	</div>	<!-- end navigation -->

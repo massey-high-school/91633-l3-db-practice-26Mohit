@@ -24,10 +24,17 @@ include ("content/navigation.html");
 ?>
 
 	<div class="main">
-
-		<h1>Welcome to Chic Clothing</h1>
-
-		<p>Please choose a category from the list above or <a href="#">login</a> to access the admin panel.</p>	
+        
+    <?php
+    
+    if (!isset($_REQUEST['page'])) {
+        include("content/home.php");
+    }    
+    
+    else{
+        do so
+    }    
+    ?>    
 
 	</div> <!-- end main -->
 <?php include ("theme/bottombit.php"); ?>		
