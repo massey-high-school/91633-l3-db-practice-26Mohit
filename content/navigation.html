@@ -1,6 +1,12 @@
 <div class="navigation">
 		
-		Category links go here | 
+        <?php
+        $cat_sql="SELECT * FROM category"; // sets up query
+        $cat_query=mysqli_query($dbconnect,$cat_sql); // runs query
+        $cat_rs=mysqli_fetch_assoc($cat_query); // organises results
+        ?>
+    
+    
 					
 		<a class="nav" href="admin/admin.php">Admin</a>
 		
