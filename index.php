@@ -31,9 +31,11 @@ include ("content/navigation.html");
         include("content/home.php");
     }    
     
-    else{
-        do so
-    }    
+    else {
+        // prevents users from navigating through file system
+        $page=preg_replace('/[^0-9a-zA-Z]-/','',$_REQUEST['page']);
+        include("content/$page.php");
+    }
     ?>    
 
 	</div> <!-- end main -->
