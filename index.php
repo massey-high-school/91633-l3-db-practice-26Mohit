@@ -19,7 +19,7 @@ if(mysqli_connect_error()){
 <?php
     
 include ("theme/topbit.php");
-include ("content/navigation.html");
+include ("content/navigation.php");
     
 ?>
 
