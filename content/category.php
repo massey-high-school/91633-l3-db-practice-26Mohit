@@ -49,6 +49,8 @@ do{
     
 }
 
-while($stock_rs=mysqli_fetch_assoc($stock_query))    
+while($stock_rs=mysqli_fetch_assoc($stock_query))
+    
+?>
 
 </table>
