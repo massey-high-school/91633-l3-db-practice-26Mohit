@@ -5,12 +5,7 @@
         header('Location:index.php');
     }
 
-    $stock_sql="SELECT L3_prac_stock.stockID, L3_prac_stock.name,
-    L3_prac_stock.price, L3_prac_category.catName 
-    FROM L3_prac_stock JOIN L3_prac_category ON    
-    (L3_prac_stock.categoryID=L3_prac_category.categoryID)
-    WHERE L3_prac_stock.categoryID=".$_REQUEST['categoryID']." 
-    ORDER BY L3_prac_stock.name ASC";
+    $stock_sql="SELECT * FROM L3_prac_stock JOIN L3_prac_category ON  (L3_prac_stock.categoryID=L3_prac_category.categoryID) WHERE L3_prac_stock.categoryID=".$_REQUEST['categoryID']." ORDER BY L3_prac_stock.name ASC";
     $stock_query=mysqli_query($dbconnect, $stock_sql);
     $stock_rs=mysqli_fetch_assoc($stock_query);
 
