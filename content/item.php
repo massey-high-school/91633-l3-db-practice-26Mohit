@@ -22,4 +22,4 @@ $stock_rs=mysqli_fetch_assoc($stock_query);
 
 <p><?php echo $stock_rs['topline']; ?></p>
 
-<p><?php echo $stock_rs['discription']; ?></p>
+<p><?php echo $stock_rs['description']; ?></p>

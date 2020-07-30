@@ -15,7 +15,7 @@
                              
         ?>">
             
-        <?php echo $cat_rs['catName'];?></a>
+        <?php echo $cat_rs['catName'];?></a> | 
     
         <?php
 

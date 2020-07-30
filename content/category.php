@@ -5,7 +5,7 @@
         header('Location:index.php');
     }
 
-    $stock_sql="SELECT * FROM L3_prac_stock JOIN L3_prac_category ON  (L3_prac_stock.categoryID=L3_prac_category.categoryID) WHERE L3_prac_stock.categoryID=".$_REQUEST['categoryID']." ORDER BY L3_prac_stock.name ASC";
+    $stock_sql="SELECT * FROM `L3_prac_stock` JOIN L3_prac_category ON  (L3_prac_stock.categoryID=L3_prac_category.categoryID) WHERE L3_prac_stock.categoryID=".$_REQUEST['categoryID']." ORDER BY L3_prac_stock.name ASC";
     $stock_query=mysqli_query($dbconnect, $stock_sql);
     $stock_rs=mysqli_fetch_assoc($stock_query);
 
@@ -26,7 +26,7 @@ do{
     
     <tr class="results">
         <td class="results">
-            <a href="index.php?page=item&L3_prac_stockID=<?php echo $stock_rs
+            <a href="index.php?page=item&stockID=<?php echo $stock_rs
             ['stockID'];?>">
                 <?php echo $stock_rs['name'];?>
             </a>
