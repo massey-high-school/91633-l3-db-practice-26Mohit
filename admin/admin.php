@@ -24,7 +24,7 @@ if(mysqli_connect_error()){
 <?php
     
 include ("../theme/topbit.php");
-include ("../content/navigation.php");
+include ("admin_navigation.php");
     
 ?>
 
