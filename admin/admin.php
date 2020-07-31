@@ -22,8 +22,9 @@ if(mysqli_connect_error()){
     	<link rel="stylesheet" href="../theme/chic.css" title="style1" />
 </head>
 <?php
-    
-include ("../theme/topbit.php");
+
+include ("content/headers.html");    
+include ("theme/heading.php");
 include ("admin_navigation.php");
     
 ?>
