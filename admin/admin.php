@@ -23,8 +23,8 @@ if(mysqli_connect_error()){
 </head>
 <?php
 
-include ("content/headers.html");    
-include ("theme/heading.php");
+include ("../content/headers.html");    
+include ("../theme/heading.php");
 include ("admin_navigation.php");
     
 ?>
@@ -34,17 +34,17 @@ include ("admin_navigation.php");
     <?php
     
     if (!isset($_REQUEST['page'])) {
-         $page="adminlogin";
+         $page="login";
     }    
     
     else {
         // prevents users from navigating through file system
         $page=preg_replace('/[^0-9a-zA-Z]-/','',$_REQUEST['page']);
-        include("content/$page.php");
+        include("/content/$page.php");
     }
         
     // Offer logon if not logged in...
-    if ($page=="logout" or $page=="adminlogin" or $page=="login")
+    if ($page=="logout" or $page=="login" or $page=="login")
         include("$page.php");
     ?>    
 
