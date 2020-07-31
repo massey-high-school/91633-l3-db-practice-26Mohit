@@ -41,6 +41,10 @@ include ("admin_navigation.php");
         $page=preg_replace('/[^0-9a-zA-Z]-/','',$_REQUEST['page']);
         include("content/$page.php");
     }
+        
+    // Offer logon if not logged in...
+    if ($page=="logout" or $page=="adminlogin" or $page=="login")
+        include("$page.php");
     ?>    
 
 	</div> <!-- end main -->

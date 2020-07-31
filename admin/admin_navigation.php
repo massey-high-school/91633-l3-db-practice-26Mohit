@@ -9,7 +9,7 @@
 
         do{?>
         
-        <a class="nav" href="index.php?page=category&categoryID=<?php echo
+        <a class="nav" href="../index.php?page=category&categoryID=<?php echo
         $cat_rs['categoryID'];
            
                              
