@@ -3,8 +3,8 @@
 <?php
 
 session_start();
-include("config.php");
-include("functions.php");
+include("../config.php");
+include("../functions.php");
 
 // Connect to database...
 $dbconnect=mysqli_connect(DB_HOST,DB_USERNAME,DB_PASSWORD,DB_NAME);
@@ -18,10 +18,13 @@ if(mysqli_connect_error()){
 
 <html>
 
+<head>
+    	<link rel="stylesheet" href="../theme/chic.css" title="style1" />
+</head>
 <?php
     
-include ("theme/topbit.php");
-include ("content/navigation.php");
+include ("../theme/topbit.php");
+include ("../content/navigation.php");
     
 ?>
 
@@ -41,7 +44,7 @@ include ("content/navigation.php");
     ?>    
 
 	</div> <!-- end main -->
-<?php include ("theme/bottombit.php"); ?>		
+<?php include ("../theme/bottombit.php"); ?>		
 	
 
 </html>
