@@ -19,4 +19,11 @@ if(isset($_REQUEST['login'])) {
     
 }
 
+if (!isset($_SESSION['admin'])) {
+    include("login.php");
+}
+else {
+    include("adminpanel.php");
+}
+
 ?>
