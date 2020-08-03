@@ -2,9 +2,9 @@
 
 if(isset($_REQUEST['login'])) {
     
-    $login_sql="SELECT * FROM users WHERE username='".$_POST['username']."' AND password='".sha1($_POST['password'])."'";
+    $login_sql="SELECT*FROM `L3_prac_users` WHERE username='".$_POST['username']."' AND password='".sha1($_POST['password'])."'";
     
-    $login_query=mysqli_query($dbconnect, $login_sql);
+    $login_query=mysqli_query($dbconnect,$login_sql);
     
     if(mysqli_num_rows($login_query)>0)
     {
@@ -15,8 +15,8 @@ if(isset($_REQUEST['login'])) {
     else {
         unset($_SESSION);
         header("Location: admin.php?page=login&error=login");
-    }
-    
+    } 
+        
 }
 
 if (!isset($_SESSION['admin'])) {

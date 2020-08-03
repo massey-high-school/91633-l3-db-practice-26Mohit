@@ -46,6 +46,14 @@ include ("admin_navigation.php");
     // Offer logon if not logged in...
     if ($page=="logout" or $page=="adminlogin" or $page=="login")
         include("$page.php");
+        
+    else{
+        if(!isset($_SESSION['admin']))
+        {
+            header('Location: admin.php?page=login');
+            die("You have not logged in");
+        }
+    }    
     ?>    
 
 	</div> <!-- end main -->
