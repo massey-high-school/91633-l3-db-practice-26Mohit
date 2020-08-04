@@ -53,6 +53,8 @@ include ("admin_navigation.php");
             header('Location: admin.php?page=login');
             die("You have not logged in");
         }
+        else
+            include("$page.php");
     }    
     ?>    
 
