@@ -18,6 +18,50 @@ if(!isset($_SESSION['admin']))
 $valid=true;
 $uploadOk = 1;
 
+// Code below excutes when the form is submitted...
+if ($_SERVER["REQUEST_METHOD"] =="POST") {
+      
+    // sanitise all variables
+    $name = test_input($_POST["name"]);
+    $price = test_input($_POST["price"]);
+    $categoryID = test_input($_POST["categoryID"]);
+    $photo = test_input($_POST["photo"]);
+    $topline = test_input($_POST["topline"]);
+    $description = test_input($_POST["description"]);
+    
+    // Error checking...
+    If (empty($name)) {
+    $NameErr = "Item name is required";
+    $valid=false;    
+    }
+    
+    $price=preg_replace('/[^0-9.]-/','',$_POST['price']);
+    if ($price<=0) {
+    $PriceErr = "Enter a number greater than 0";
+    $valid=false;    
+    }
+    
+    if (empty($topline)) {
+    $TopErr = "Please provide a byline";
+    $valid=false;    
+    }
+    
+    if (empty($description)) {
+    $DesErr = "Please provide a description";
+    $valid=false;
+    }
+    
+    //Check Image...
+    if ($_FILES['flieToUpload']['name']!="") {
+        
+    // Shifts images from temporary directory to target directory    
+    }
+    
+    
+    // If everything is OK - show 'success message and update database
+    
+    // put entry into database
+}
 
 ?>
 
@@ -40,22 +84,39 @@ $uploadOk = 1;
     
     <p>
         <b>Category</b>    
-        <input type="text" name="categoryID" value="" />    
+        <select name="categoryID">
+            
+        <?php
+            
+        $cat_sql="SELECT * FROM `L3_prac_category`";
+        $cat_query=mysqli_query($dbconnect, $cat_sql);
+            
+        do {
+            echo '<option value="'.$cat_rs['categoryID'].'"';
+            echo ">".$cat_rs['catName']."<?option>";
+            
+        }    
+        
+        while ($cat_rs=mysqli_fetch_assoc($cat_query)) 
+            
+        ?>    
+        
+        </select>    
     </p>
 
     <p>
         <b>Photo</b>    
-        <input type="text" name="price" value="" />    
+        <input type="file" name="fileToUpload" id="fileToUpload" value=""/>&nbsp;&nbsp; <span class="error"><?php echo $PhotoErr;?></span>    
     </p>
 
     <p>
         <b>Topline</b>    
         <input type="text" name="topline" value="<?php echo $topline; ?>" />
-        &nbsp;&nbsp; <span class="error"><?php echo $NameErr;?></span>
+        &nbsp;&nbsp; <span class="error"><?php echo $TopErr;?></span>
     </p>
     
     <p>
-        <b>Description</b>&nbsp;&nbsp; <span class="error"><?php echo $NameErr;?></span>
+        <b>Description</b>&nbsp;&nbsp; <span class="error"><?php echo $DesErr;?></span>
     </p>
     <p>
         <textarea type="text" name="description" cols="60" rows="7"><?php echo $description; ?></textarea>   
