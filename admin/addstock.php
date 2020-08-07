@@ -22,12 +22,11 @@ $uploadOk = 1;
 if ($_SERVER["REQUEST_METHOD"] =="POST") {
       
     // sanitise all variables
-    $name = test_input($_POST["name"]);
+    $name = test_input(mysqli_real_escape_string($_POST["name"]));
     $price = test_input($_POST["price"]);
-    $categoryID = test_input($_POST["categoryID"]);
-    $photo = test_input($_POST["photo"]);
-    $topline = test_input($_POST["topline"]);
-    $description = test_input($_POST["description"]);
+    $categoryID = preg_replace('/[^0-9.]-/','',$_POST['categoryID']);
+    $topline = test_input(mysqli_real_escape_string($_POST["topline"]));
+    $description = test_input(mysqli_real_escape_string($_POST["description"]));
     
     // Error checking...
     If (empty($name)) {
