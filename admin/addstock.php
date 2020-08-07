@@ -54,13 +54,61 @@ if ($_SERVER["REQUEST_METHOD"] =="POST") {
     //Check Image...
     if ($_FILES['flieToUpload']['name']!="") {
         
-    // Shifts images from temporary directory to target directory    
+    // Shifts images from temporary directory to target directory
+    $target_file = uniqid()."_". basement($_FILES["fileToUpload"]['name']);
+    $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+    
+    // Allow .jpg, .png or gif only
+    if($imageFileType !="jpg" && $imageFileType != "png" && $imageFileType != "gif" ){
+    $PhotoErr= "Sorry, only JPG, JPEG, PNG & GIf files are allowed.";
+    $uploadOk = 0;
+    $valid=false;
+    }   
+    
+    // Check file size
+    if ($_FILES["fileToUpload"]["size"]> 500000) {
+    $PhotoErr= "Sorry, your file is too large.";
+    $uploadOk = 0;
+    $valid=false;    
+    }    
+        
     }
     
     
     // If everything is OK - show 'success message and update database
-    
+    if($valid){
+    header('Location: admin.php?page=addstock_success');
+            
     // put entry into database
+    if ($_FILES['fileToUpload']['name']!="")
+        
+        $addstock_sql="INSERT INTO stock (name, categoryID, price, photo, topline, description) VALUES (
+        '$name',
+        '$categoryID',
+        '$price',
+        '".$target_file."',
+        '$topline',
+        '$description'
+        )";
+    
+    else
+         $addstock_sql="INSERT INTO stock (name, categoryID, price, photo, topline, description) VALUES (
+        '$name',
+        '$categoryID',
+        '$price',
+        '$photo',
+        '$topline',
+        '$description'
+        )";
+        
+    // Code below runs query and inputs data into database 
+    
+    if ($uploadOk==1) {
+        
+        move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], IMAGE_DIRECTORY.'/'.$target_file);
+    }    
+    }
+
 }
 
 ?>
