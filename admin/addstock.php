@@ -112,7 +112,7 @@ if ($_SERVER["REQUEST_METHOD"] =="POST") {
 
 ?>
 
-<form> method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]."?page=addstock");?>" enctype="multipart/form-data">
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]."?page=addstock");?>" enctype="multipart/form-data">
     
     <h1>Add Item</h1>
     
