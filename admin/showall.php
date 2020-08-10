@@ -17,8 +17,8 @@
        <tr class="results">
            <td class="results"><a href="../index.php?page=item&stockID=<?php echo $stock_rs['stockID']; ?>"><?php echo $stock_rs['name']; ?></a></td>
            <td class="results"><b>$ <?php echo $stock_rs['price']; ?></b></td>
-           <td class="results"><a href="#">Edit</a></td>
-           <td class="results"><a href="#">Delete</a></td>
+           <td class="results"><a href="admin.php?page=editstock&stockID=<?php echo $stock_rs['stockID']; ?>">Edit</a></td>
+           <td class="results"><a href="admin.php?page=deleteitem_confirm&stockID=<?php echo $stock_rs['stockID']; ?>">Delete</a></td>
        </tr>
     <?php
         }
