@@ -78,7 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] =="POST") {
     
     // If everything is OK - show 'success message and update database
     if($valid){
-    // header('Location: admin.php?page=addstock_success');
+    header('Location: admin.php?page=addstock_success');
             
     // put entry into database
     if ($_FILES['fileToUpload']['name']!="")
@@ -103,6 +103,7 @@ if ($_SERVER["REQUEST_METHOD"] =="POST") {
         )";
         
     // Code below runs query and inputs data into database 
+    $addstock_query=mysqli_query($dbconnect,$addstock_sql);    
     
     if ($uploadOk==1) {
         
