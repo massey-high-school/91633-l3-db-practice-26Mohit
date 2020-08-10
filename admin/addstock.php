@@ -22,11 +22,11 @@ $uploadOk = 1;
 if ($_SERVER["REQUEST_METHOD"] =="POST") {
       
     // sanitise all variables
-    $name = test_input(mysqli_real_escape_string($_POST["name"]));
+    $name = test_input(mysqli_real_escape_string($dbconnect,$_POST["name"]));
     $price = test_input($_POST["price"]);
     $categoryID = preg_replace('/[^0-9.]-/','',$_POST['categoryID']);
-    $topline = test_input(mysqli_real_escape_string($_POST["topline"]));
-    $description = test_input(mysqli_real_escape_string($_POST["description"]));
+    $topline = test_input(mysqli_real_escape_string($dbconnect,$_POST["topline"]));
+    $description = test_input(mysqli_real_escape_string($dbconnect,$_POST["description"]));
     
     // Error checking...
     If (empty($name)) {
@@ -51,10 +51,12 @@ if ($_SERVER["REQUEST_METHOD"] =="POST") {
     }
     
     //Check Image...
-    if ($_FILES['flieToUpload']['name']!="") {
+    if ($_FILES['fileToUpload']['name']!="") {
         
     // Shifts images from temporary directory to target directory
-    $target_file = uniqid()."_". basement($_FILES["fileToUpload"]['name']);
+        
+    // use unique-id so each upload file is unique    
+    $target_file = uniqid()."_". basename($_FILES["fileToUpload"]['name']);
     $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
     
     // Allow .jpg, .png or gif only
@@ -76,12 +78,12 @@ if ($_SERVER["REQUEST_METHOD"] =="POST") {
     
     // If everything is OK - show 'success message and update database
     if($valid){
-    header('Location: admin.php?page=addstock_success');
+    // header('Location: admin.php?page=addstock_success');
             
     // put entry into database
     if ($_FILES['fileToUpload']['name']!="")
         
-        $addstock_sql="INSERT INTO stock (name, categoryID, price, photo, topline, description) VALUES (
+        $addstock_sql="INSERT INTO `L3_prac_stock` (name, categoryID, price, photo, topline, description) VALUES (
         '$name',
         '$categoryID',
         '$price',
@@ -91,7 +93,7 @@ if ($_SERVER["REQUEST_METHOD"] =="POST") {
         )";
     
     else
-         $addstock_sql="INSERT INTO stock (name, categoryID, price, photo, topline, description) VALUES (
+         $addstock_sql="INSERT INTO `L3_prac_stock` (name, categoryID, price, photo, topline, description) VALUES (
         '$name',
         '$categoryID',
         '$price',
