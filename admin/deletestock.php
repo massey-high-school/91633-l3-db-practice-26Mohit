@@ -1,6 +1,6 @@
 <?php
 
-    $stock_sql="SELECT `L3_prac_stock`.* FROM `L3_prac_stock` WHERE stock.stockID=".$_REQUEST['stockID'];
+    $stock_sql="SELECT stock.* FROM `L3_prac_stock` WHERE stock.stockID=".$_REQUEST['stockID'];
     $stock_query=mysqli_query($dbconnect, $stock_sql);
     $stock_rs=mysqli_fetch_assoc($stock_query);
 
@@ -16,5 +16,6 @@
 ?> 
 
 <h1>Delete Success</h1>
+
 
 <p><a href="admin.php?page=adminpanel">Return to admin panel</a></p>
