@@ -13,7 +13,17 @@ $check_query=mysqli_query($dbconnect, $check_sql);
 $count=mysqli_num_rows($check_query);
 
 if ($count>0) {?>
-<div class="warning"><p>Warning there are <?php echo $count; ?>
+<div class="warning"><p>Warning there are <?php echo $count; ?> items in the <?php echo $delcat_rs['catName'];?> category. If you delete this category, those items will be removed from the database.</div>
+
+<?php
+
+}
+
 ?>
 
-<p>Do you really want to delete category #<?php echo $delcatID ie: the <?php echo $delcat_rs['catName'];?></p>
+<p>
+<a href="admin.php?page=deletecategoryconfirm&categoryID=<?php echo $delcat_rs['categoryID']?>">Yes, delete it!</a> |
+<a href="admin.php?page=adminpanel">No, go back</a>
+</p>
+
+<p>Do you really want to delete category #<?php echo $delcatID ?> ie: the <?php echo $delcat_rs['catName'];?></p>
