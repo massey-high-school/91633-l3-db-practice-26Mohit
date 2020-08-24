@@ -7,7 +7,7 @@
 	
 	<br />
 	
-	</form action="admin.php?page=editcategory" method="post">
+	<form action="admin.php?page=editcategory" method="post">
 	    <select name="oldcat">
 		
 		    <option value="">
@@ -37,10 +37,40 @@
 		&nbsp; &nbsp; Change to... <input name="newcat" value=""/>
 		<input type="submit" value="Update Category"/>
 		
-    </form>		
-<p>
-    <a href="admin.php?page=deletecategoryselect">Delete a Category</a><br />
-</p>
+    </form>
+
+	<br/>
+	
+	<form action="admin.php?page=deletecategory" method="post">
+	<select name="delcat">
+		
+		    <option value="">
+			    Choose...
+			</option>	
+		
+		    <?php
+			    $delcat_sql="SELECT * FROM `L3_prac_category`";
+				$delcat_query=mysqli_query($dbconnect, $delcat_sql);
+				$delcat_rs=mysqli_fetch_assoc($delcat_query);
+				
+				do{
+				// value sent to query that edits the category
+				echo "<option value='";
+				echo $delcat_rs['categoryID'];
+				echo "'>";
+				
+				// what the user sees in the drop down menu
+				echo $delcat_rs['catName'];
+				echo "</option>";
+				}
+				
+				while($delcat_rs=mysqli_fetch_assoc($delcat_query))
+			?>
+			
+		</select>
+		<input type="submit" value="Delete Category"/>
+	</form>
+
 
 <h3>Items</h3>
 
