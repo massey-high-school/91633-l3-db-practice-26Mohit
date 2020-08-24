@@ -136,14 +136,21 @@ if ($_SERVER["REQUEST_METHOD"] =="POST") {
         $cat_sql="SELECT * FROM `L3_prac_category`";
         $cat_query=mysqli_query($dbconnect, $cat_sql);
             
-        do {
+         do {
+			
+			if ($cat_rs['categoryID']==$categoryID) {
+				echo '<option value="'.$cat_rs['categoryID'].'"
+				selected';
+				echo ">".$cat_rs['catName']."</option>";
+			}
+			else {
             echo '<option value="'.$cat_rs['categoryID'].'"';
             echo ">".$cat_rs['catName']."<?option>";
-            
+            }
         }    
         
         while ($cat_rs=mysqli_fetch_assoc($cat_query)) 
-            
+			
         ?>    
         
         </select>    

@@ -15,7 +15,10 @@
 
 ?> 
 
-<h1>Delete Success</h1>
+<h1>Item Deleted!</h1>
 
+<p>The item has been deleted.</p>
 
-<p><a href="admin.php?page=adminpanel">Return to admin panel</a></p>
+<?php
+    include("adminlinks.php");
+?>	
