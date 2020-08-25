@@ -1,6 +1,6 @@
 <?php
 
-    $stock_sql="SELECT stock.* FROM `L3_prac_stock` WHERE stock.stockID=".$_REQUEST['stockID'];
+    $stock_sql="SELECT * FROM `L3_prac_stock` WHERE stockID=".$_REQUEST['stockID'];
     $stock_query=mysqli_query($dbconnect, $stock_sql);
     $stock_rs=mysqli_fetch_assoc($stock_query);
 
