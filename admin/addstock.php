@@ -5,7 +5,7 @@ $price=0;
 $categoryID=1;
 $topline="";
 $description="";
-$photo="noimage.php";
+$photo="noimage.png";
 $NameErr=$PriceErr=$PhotoErr=$TopErr=$DesErr="";
 
 
