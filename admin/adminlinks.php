@@ -1,8 +1,8 @@
 <h3>Categories</h3>
 
     <form action="admin.php?page=addcategory" method="post">
-	    <input name="catName" value=""/>
-		<input type="submit" value="Add Category"/>
+	    <input name="catName" value="" required/>
+		<input type="submit" value="Add Category" />
 	</form>	
 	
 	<br />
@@ -10,7 +10,7 @@
 	<form action="admin.php?page=editcategory" method="post">
 	    <select name="oldcat">
 		
-		    <option value="">
+		    <option value="" disabled>
 			    Choose...
 			</option>	
 		
@@ -34,7 +34,7 @@
 			?>
 			
 		</select>
-		&nbsp; &nbsp; Change to... <input name="newcat" value=""/>
+		&nbsp; &nbsp; Change to... <input name="newcat" required value=""/>
 		<input type="submit" value="Update Category"/>
 		
     </form>
@@ -44,7 +44,7 @@
 	<form action="admin.php?page=deletecategory" method="post">
 	<select name="delcat">
 		
-		    <option value="">
+		    <option value="" disabled>
 			    Choose...
 			</option>	
 		
@@ -68,7 +68,7 @@
 			?>
 			
 		</select>
-		<input type="submit" value="Delete Category"/>
+		<input type="submit" value="Delete Category" />
 	</form>
 
 
