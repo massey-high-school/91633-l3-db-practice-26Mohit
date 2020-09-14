@@ -189,9 +189,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		echo "<img src=".IMAGE_DIRECTORY."/".$editstock_rs['photo'].">";
 		?>
 		</p>
-		Optionally Replace Photo Above:
+		<p>Optionally Replace Photo Above:
 		<input type="file" name="fileToUpload" id="fileToUpload" value=""/>&nbsp;&nbsp;<span class="error"><?php echo $PhotoErr;?></span></p>
-	</p>
 	
 	<p>
 		<b>Topline</b>
